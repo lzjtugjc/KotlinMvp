@@ -59,9 +59,9 @@ class FollowFragment : BaseFragment(), FollowContract.View {
         mRecyclerView.adapter = mFollowAdapter
         //实现自动加载
         mRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-            override fun onScrollStateChanged(recyclerView: RecyclerView?, newState: Int) {
+            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
                 super.onScrollStateChanged(recyclerView, newState)
-                val itemCount = mRecyclerView.layoutManager.itemCount
+                val itemCount = mRecyclerView.layoutManager!!.itemCount
                 val lastVisibleItem = (mRecyclerView.layoutManager as LinearLayoutManager).findLastVisibleItemPosition()
                 if (!loadingMore && lastVisibleItem == (itemCount - 1)) {
                     loadingMore = true

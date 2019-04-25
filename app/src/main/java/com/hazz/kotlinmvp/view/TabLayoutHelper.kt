@@ -11,7 +11,7 @@ import java.lang.reflect.Field
  * Created by xuhao on 2017/12/7.
  * desc:
  */
-object TabLayoutHelper{
+object TabLayoutHelper {
 
     @SuppressLint("ObsoleteSdkInt")
     fun setUpIndicatorWidth(tabLayout: TabLayout) {
@@ -20,7 +20,7 @@ object TabLayoutHelper{
         try {
             tabStrip = tabLayoutClass.getDeclaredField("mTabStrip")
             tabStrip!!.isAccessible = true
-        } catch (e: NoSuchFieldException) {
+        } catch (e: Exception) {
             e.printStackTrace()
         }
 
@@ -40,7 +40,7 @@ object TabLayoutHelper{
                 child.layoutParams = params
                 child.invalidate()
             }
-        } catch (e: IllegalAccessException) {
+        } catch (e: Exception) {
             e.printStackTrace()
         }
 

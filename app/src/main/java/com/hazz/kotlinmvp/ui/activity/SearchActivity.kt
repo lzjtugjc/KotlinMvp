@@ -82,9 +82,9 @@ class SearchActivity : BaseActivity(), SearchContract.View {
 
         //实现自动加载
         mRecyclerView_result.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-            override fun onScrollStateChanged(recyclerView: RecyclerView?, newState: Int) {
+            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
                 super.onScrollStateChanged(recyclerView, newState)
-                val itemCount = mRecyclerView_result.layoutManager.itemCount
+                val itemCount = mRecyclerView_result.layoutManager!!.itemCount
                 val lastVisibleItem = (mRecyclerView_result.layoutManager as LinearLayoutManager).findLastVisibleItemPosition()
                 if (!loadingMore && lastVisibleItem == (itemCount - 1)) {
                     loadingMore = true
