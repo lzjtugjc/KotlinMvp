@@ -1,6 +1,6 @@
 package com.hazz.kotlinmvp.ui.activity
 
-import android.support.v7.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.hazz.kotlinmvp.Constants
 import com.hazz.kotlinmvp.MyApplication
 import com.hazz.kotlinmvp.R
@@ -42,7 +42,7 @@ class WatchHistoryActivity : BaseActivity() {
         toolbar.setNavigationOnClickListener { finish() }
 
         val mAdapter = WatchHistoryAdapter(this, itemListData, R.layout.item_video_small_card)
-        mRecyclerView.layoutManager = LinearLayoutManager(this)
+        mRecyclerView.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this)
         mRecyclerView.adapter = mAdapter
 
         if (itemListData.size > 0) {

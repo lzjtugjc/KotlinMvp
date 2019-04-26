@@ -1,8 +1,8 @@
 package com.hazz.kotlinmvp.ui.fragment
 
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.hazz.kotlinmvp.R
 import com.hazz.kotlinmvp.base.BaseFragment
 import com.hazz.kotlinmvp.mvp.contract.FollowContract
@@ -55,14 +55,14 @@ class FollowFragment : BaseFragment(), FollowContract.View {
 
     override fun initView() {
 
-        mRecyclerView.layoutManager = LinearLayoutManager(activity)
+        mRecyclerView.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(activity)
         mRecyclerView.adapter = mFollowAdapter
         //实现自动加载
-        mRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+        mRecyclerView.addOnScrollListener(object : androidx.recyclerview.widget.RecyclerView.OnScrollListener() {
+            override fun onScrollStateChanged(recyclerView: androidx.recyclerview.widget.RecyclerView, newState: Int) {
                 super.onScrollStateChanged(recyclerView, newState)
                 val itemCount = mRecyclerView.layoutManager!!.itemCount
-                val lastVisibleItem = (mRecyclerView.layoutManager as LinearLayoutManager).findLastVisibleItemPosition()
+                val lastVisibleItem = (mRecyclerView.layoutManager as androidx.recyclerview.widget.LinearLayoutManager).findLastVisibleItemPosition()
                 if (!loadingMore && lastVisibleItem == (itemCount - 1)) {
                     loadingMore = true
                     mPresenter.loadMoreData()

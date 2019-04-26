@@ -1,7 +1,7 @@
 package com.hazz.kotlinmvp.ui.fragment
 
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.hazz.kotlinmvp.R
 import com.hazz.kotlinmvp.base.BaseFragment
 import com.hazz.kotlinmvp.mvp.contract.RankContract
@@ -45,7 +45,7 @@ class RankFragment : BaseFragment(), RankContract.View {
     override fun getLayoutId(): Int = R.layout.fragment_rank
 
     override fun initView() {
-        mRecyclerView.layoutManager = LinearLayoutManager(activity)
+        mRecyclerView.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(activity)
         mRecyclerView.adapter = mAdapter
 
         mLayoutStatusView =multipleStatusView

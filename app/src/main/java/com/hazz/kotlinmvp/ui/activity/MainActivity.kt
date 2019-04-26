@@ -2,7 +2,7 @@ package com.hazz.kotlinmvp.ui.activity
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.support.v4.app.FragmentTransaction
+import androidx.fragment.app.FragmentTransaction
 import android.view.KeyEvent
 import com.flyco.tablayout.listener.CustomTabEntity
 import com.flyco.tablayout.listener.OnTabSelectListener
@@ -126,7 +126,7 @@ class MainActivity : BaseActivity() {
      * 隐藏所有的Fragment
      * @param transaction transaction
      */
-    private fun hideFragments(transaction: FragmentTransaction) {
+    private fun hideFragments(transaction: androidx.fragment.app.FragmentTransaction) {
         mHomeFragment?.let { transaction.hide(it) }
         mDiscoveryFragment?.let { transaction.hide(it) }
         mHotFragment?.let { transaction.hide(it) }

@@ -6,6 +6,13 @@ plugins {
 }
 
 android {
+    val androidConfig = rootProject.ext["android"] as Map<*, *>
+    val compileSdkVersion = androidConfig["compileSdkVersion"].toString().toInt()
+    val minSdkVersion = androidConfig["minSdkVersion"].toString().toInt()
+    val targetSdkVersion = androidConfig["targetSdkVersion"].toString().toInt()
+    val versionCode = androidConfig["versionCode"].toString().toInt()
+    val versionName = androidConfig["versionName"].toString()
+
     signingConfigs {
         create("release") {
             keyAlias = "ktmp"
@@ -14,14 +21,15 @@ android {
             storePassword = "ktmp123456"
         }
     }
-    compileSdkVersion(28)
+    compileSdkVersion(compileSdkVersion)
     defaultConfig {
         applicationId = "com.hazz.kotlinmvp"
-        minSdkVersion(19)
-        targetSdkVersion(28)
+        minSdkVersion(minSdkVersion)
+        targetSdkVersion(targetSdkVersion)
         multiDexEnabled = true
-        versionCode = 6
-        versionName = "1.3.0"
+        this.versionCode = versionCode
+        this.versionName = versionName
+
         testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
         javaCompileOptions {
             annotationProcessorOptions {

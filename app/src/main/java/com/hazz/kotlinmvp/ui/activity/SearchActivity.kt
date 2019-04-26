@@ -3,8 +3,8 @@ package com.hazz.kotlinmvp.ui.activity
 import android.annotation.TargetApi
 import android.graphics.Typeface
 import android.os.Build
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.transition.Fade
 import android.transition.Transition
 import android.transition.TransitionInflater
@@ -77,15 +77,15 @@ class SearchActivity : BaseActivity(), SearchContract.View {
         tv_title_tip.typeface = mTextTypeface
         tv_hot_search_words.typeface = mTextTypeface
         //初始化查询结果的 RecyclerView
-        mRecyclerView_result.layoutManager = LinearLayoutManager(this)
+        mRecyclerView_result.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this)
         mRecyclerView_result.adapter = mResultAdapter
 
         //实现自动加载
-        mRecyclerView_result.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+        mRecyclerView_result.addOnScrollListener(object : androidx.recyclerview.widget.RecyclerView.OnScrollListener() {
+            override fun onScrollStateChanged(recyclerView: androidx.recyclerview.widget.RecyclerView, newState: Int) {
                 super.onScrollStateChanged(recyclerView, newState)
                 val itemCount = mRecyclerView_result.layoutManager!!.itemCount
-                val lastVisibleItem = (mRecyclerView_result.layoutManager as LinearLayoutManager).findLastVisibleItemPosition()
+                val lastVisibleItem = (mRecyclerView_result.layoutManager as androidx.recyclerview.widget.LinearLayoutManager).findLastVisibleItemPosition()
                 if (!loadingMore && lastVisibleItem == (itemCount - 1)) {
                     loadingMore = true
                     mPresenter.loadMoreData()

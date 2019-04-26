@@ -1,7 +1,7 @@
 package com.hazz.kotlinmvp.view.recyclerview.adapter
 
 import android.content.Context
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,7 +15,7 @@ import com.hazz.kotlinmvp.view.recyclerview.ViewHolder
  */
 
 abstract class CommonAdapter<T>(var mContext: Context, var mData: ArrayList<T>, //条目布局
-                                private var mLayoutId: Int) : RecyclerView.Adapter<ViewHolder>() {
+                                private var mLayoutId: Int) : androidx.recyclerview.widget.RecyclerView.Adapter<ViewHolder>() {
     protected var mInflater: LayoutInflater? = null
     private var mTypeSupport: MultipleType<T>? = null
 

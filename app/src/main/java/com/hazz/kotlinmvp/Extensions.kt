@@ -1,7 +1,7 @@
 package com.hazz.kotlinmvp
 
 import android.content.Context
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
@@ -13,7 +13,7 @@ import java.net.URL
  * Created by xuhao on 2017/11/14.
  */
 
-fun Fragment.showToast(content: String): Toast {
+fun androidx.fragment.app.Fragment.showToast(content: String): Toast {
     val toast = Toast.makeText(this.activity?.applicationContext, content, Toast.LENGTH_SHORT)
     toast.show()
     return toast

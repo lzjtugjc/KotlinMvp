@@ -2,8 +2,8 @@ package com.hazz.kotlinmvp.ui.adapter
 
 import android.app.Activity
 import android.content.Context
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.widget.ImageView
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.hazz.kotlinmvp.R
@@ -69,11 +69,14 @@ class FollowAdapter(context: Context, dataList: ArrayList<HomeBean.Issue.Item>)
         holder.setText(R.id.tv_title, headerData.title)
         holder.setText(R.id.tv_desc, headerData.description)
 
-        val recyclerView = holder.getView<RecyclerView>(R.id.fl_recyclerView)
+        val recyclerView = holder.getView<androidx.recyclerview.widget.RecyclerView>(R.id.fl_recyclerView)
         /**
          * 设置嵌套水平的 RecyclerView
          */
-        recyclerView.layoutManager = LinearLayoutManager(mContext as Activity,LinearLayoutManager.HORIZONTAL,false)
+        recyclerView.layoutManager =
+                androidx.recyclerview.widget.LinearLayoutManager(mContext as Activity,
+                                                                 androidx.recyclerview.widget.LinearLayoutManager.HORIZONTAL,
+                                                                 false)
         recyclerView.adapter = FollowHorizontalAdapter(mContext,item.data.itemList,R.layout.item_follow_horizontal)
 
     }

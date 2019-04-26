@@ -1,7 +1,7 @@
 package com.hazz.kotlinmvp.ui.fragment
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import com.hazz.kotlinmvp.R
 import com.hazz.kotlinmvp.base.BaseFragment
 import com.hazz.kotlinmvp.base.BaseFragmentAdapter
@@ -28,7 +28,7 @@ class HotFragment : BaseFragment(), HotTabContract.View {
      */
     private val mTabTitleList = ArrayList<String>()
 
-    private val mFragmentList = ArrayList<Fragment>()
+    private val mFragmentList = ArrayList<androidx.fragment.app.Fragment>()
 
     companion object {
         fun getInstance(title: String): HotFragment {
